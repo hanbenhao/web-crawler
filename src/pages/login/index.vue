@@ -23,6 +23,9 @@
         />
       </div>
       <button type="submit" class="login-button">登录</button>
+      <div class="register-link">
+        <p>还没有账号？<router-link to="/register">去注册</router-link></p>
+      </div>  
     </form>
   </div>
 </template>
@@ -104,5 +107,21 @@ input:focus {
 
 .login-button:hover {
   background-color: #3a70e0;
+}
+
+
+.register-link {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.register-link a {
+  color: #4c84ff;
+  text-decoration: none;
+}
+
+.register-link a:hover {
+  text-decoration: underline;
 }
 </style>

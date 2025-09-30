@@ -1,4 +1,5 @@
 <template>
+  <NavBar />
   <main>
     <router-view v-slot="{ Component }">
       <keep-alive>
