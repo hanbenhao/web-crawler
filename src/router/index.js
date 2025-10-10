@@ -13,6 +13,10 @@ const routes = [
     path: '/register',
     name: 'Register',
     component: RegisterForm
+  },
+  {
+    path: '/',
+    redirect: '/login'
   }
 ]
 

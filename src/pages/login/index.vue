@@ -1,53 +1,61 @@
 <template>
-  <div class="login-container">
-    <h2>用户登录</h2>
-    <form @submit.prevent="handleLogin" class="login-form">
-      <div class="form-group">
-        <label for="username">账号</label>
-        <input
-          type="text"
-          id="username"
-          v-model="username"
-          placeholder="请输入账号"
-          required
-        />
-      </div>
-      <div class="form-group">
-        <label for="password">密码</label>
-        <input
-          type="password"
-          id="password"
-          v-model="password"
-          placeholder="请输入密码"
-          required
-        />
-      </div>
-      <button type="submit" class="login-button">登录</button>
-      <div class="register-link">
-        <p>还没有账号？<router-link to="/register">去注册</router-link></p>
-      </div>  
-    </form>
+  <div
+    class="relative flex h-[100vh] w-full flex-col items-center justify-center overflow-hidden rounded-lg bg-background md:shadow-xl"
+  >
+    <div class="login-container absolute z-10">
+      <h2>用户登录</h2>
+      <form @submit.prevent="handleLogin" class="login-form">
+        <div class="form-group">
+          <label for="username">账号</label>
+          <input
+            type="text"
+            id="username"
+            v-model="username"
+            placeholder="请输入账号"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="password">密码</label>
+          <input
+            type="password"
+            id="password"
+            v-model="password"
+            placeholder="请输入密码"
+            required
+          />
+        </div>
+        <button type="submit" class="login-button">登录</button>
+        <div class="register-link">
+          <p>还没有账号？<router-link to="/register">去注册</router-link></p>
+        </div>
+      </form>
+    </div>
+    <div class="relative h-[100vh] w-full">
+      <SnowfallBg
+        color="ADD8E6"
+        class="absolute inset-0"
+        :min-radius="0.2"
+        :max-radius="5"
+        :speed="0.5"
+      />
+    </div>
   </div>
 </template>
 
-<script>
-export default {
-  name: 'LoginForm',
-  data() {
-    return {
-      username: '',
-      password: '',
-    }
-  },
-  methods: {
-    handleLogin() {
-      console.log('登录信息:', this.username, this.password)
-    },
-  },
+<script lang="ts" setup>
+import SnowfallBg from '@/componets/SnowfallBg.vue'
+import { ref } from 'vue'
+
+let username = ref('')
+let password = ref('')
+
+const handleLogin = () => {
+  console.log('登录信息:', username.value, password.value)
 }
 </script>
 
-<style scoped>
+<style lang="less" scoped>
 .login-container {
   width: 400px;
   margin: 40px auto;
@@ -108,7 +116,6 @@ input:focus {
 .login-button:hover {
   background-color: #3a70e0;
 }
-
 
 .register-link {
   text-align: center;
