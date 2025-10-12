@@ -15,8 +15,13 @@ const routes = [
     component: RegisterForm
   },
   {
+    path: '/home',
+    name: 'Home',
+    component: () => import('../pages/home/index.vue')
+  },
+  {
     path: '/',
-    redirect: '/login'
+    redirect: '/home'
   }
 ]
 

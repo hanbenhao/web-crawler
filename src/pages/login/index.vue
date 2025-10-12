@@ -7,25 +7,25 @@
       <form @submit.prevent="handleLogin" class="login-form">
         <div class="form-group">
           <label for="username">账号</label>
-          <input
+          <el-input
             type="text"
             id="username"
             v-model="username"
             placeholder="请输入账号"
-            required
           />
         </div>
         <div class="form-group">
           <label for="password">密码</label>
-          <input
+          <el-input
             type="password"
             id="password"
             v-model="password"
             placeholder="请输入密码"
-            required
           />
         </div>
-        <button type="submit" class="login-button">登录</button>
+        <button type="submit" class="login-button" onclick="handleLogin">
+          登录
+        </button>
         <div class="register-link">
           <p>还没有账号？<router-link to="/register">去注册</router-link></p>
         </div>
@@ -46,12 +46,16 @@
 <script lang="ts" setup>
 import SnowfallBg from '@/componets/SnowfallBg.vue'
 import { ref } from 'vue'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
 
 let username = ref('')
 let password = ref('')
 
 const handleLogin = () => {
   console.log('登录信息:', username.value, password.value)
+  router.replace({ path: '/home' })
 }
 </script>
 
